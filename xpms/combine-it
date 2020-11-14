@@ -1,0 +1,22 @@
+#!/usr/bin/perl
+$|=1;
+
+sub Run($)
+{
+    print "$_[0]\n";
+    system($_[0]);
+}
+
+# MAIN
+{
+    Run("cp snap.rgb out.rgb");
+    my $xmax = 377;	# fits 16 "23x31 images" per row
+    my $ymax = 500;
+    my $x = 0; 
+    my $y = 0;
+    foreach $i ( split(/\n/, `ls *.xpm`) )
+    {
+	Run("im combine out.rgb -compose atop -geometry +$x+$y $i out.rgb");
+	$x += 23; if ( $x > ( $xmax - 23 ) ) { $x=0; $y += 31; }
+    }
+}

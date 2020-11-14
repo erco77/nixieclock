@@ -1,0 +1,189 @@
+=head1 NAME
+
+nixieclock - a nixie tube desktop clock
+
+=head1 SYNOPSIS
+
+nixieclock [ B<options> ]
+
+=head1 DESCRIPTION
+
+B<nixieclock> displays a nice nixie tube clock on your desktop.
+It checks the time about every 30 seconds and updates, unless
+a seconds field is specified, in which case it updates every
+second.  To move the clock, just click and drag it to where
+you want it. Press B<ESC> to exit.  B<nixieclock> uses the
+FLTK graphics toolkit http://www.fltk.org/
+
+As of version 1.60, a 'right click' menu has been added to the clock
+so that you can select some pre-defined time formats, as well as
+some other features. For macs with single-button mice, Ctrl-Click
+will also bring up the menu.
+
+=head1 OPTIONS
+
+    -a              Always above other windows. (Not supported on all platforms)
+
+    -d              Date/Time in numeric format, "12:55 01-01-2004"
+
+    -m              (default) Month oriented date format, "12:55 Wed Jan 01".
+
+    -h              Hour:Min format only, eg. "12:55"
+
+    -s "format"     Use strftime(3) time and date format, 
+                    eg. -s "%H:%M %a %b %d"
+
+    -t              Test pattern for alphanumeric display
+
+    -help, --help   Display help
+
+    -n              Do not run in the background
+
+    -b              Borders. This enables window manager borders/decorations (which are normally off).
+
+    -nb             No borders. This disables window manager borders/decorations.
+
+    -geometry "pos" X geometry specification, see X(7x)
+
+    -c epochtime    Counts down to epochtime.
+		    Use this for a countdown timer, where epochtime is
+		    time(2) plus some number of seconds from now.
+
+    -N              Disable updating the ~/.nixieclock file.
+		    Allows you to experiment with command line invocations
+		    without affecting your ~/.nixiclock settings.
+
+=head1 EXAMPLES
+
+=over 4
+
+B<nixieclock>
+
+    07:57 SAT FEB 20
+
+B<nixieclock -d>
+
+    07:57 02-20-01
+
+B<nixieclock -s '%H:%M:%S'>
+
+    07:57:23
+
+B<nixieclock -s 'THE TIME IS: %H:%M:%S'>
+
+    THE TIME IS: 07:57:23
+
+B<nixieclock -geometry -0-0>
+
+    ..positions clock at lower right.
+
+B<nixieclock -geometry -5-5>
+
+    ..positions clock 5 pixels from lower right.
+
+B<nixieclock -geometry +0-0>
+
+    ..positions clock at lower left.
+
+B<nixieclock -N -c `perl -e 'print time()+3600;'` -s "BEER: %H:%M:%S">
+
+    ..sets a 'beer o'clock' countdown timer.
+    In this case, the timer begins a 1 hour countdown. 
+    The sequence will be:
+
+          BEER: 01:00:00
+	  BEER: 00:59:59
+	  [..]
+	  BEER: 00:00:01
+	  BEER: 00:00:00
+
+    ..when the counter reaches 00:00:00, it stops counting down
+    (the clock remains open). You can change the -s format string
+    to be whatever you want. Keep in mind the month/day/year info
+    will be meaningless in this context.
+
+    The -N flag prevents the ~/.nixieclock file from being
+    affected; often one wants a countdown timer only as a
+    special case that doesn't affect their normal clock config.
+
+=back
+
+=head1 FILES
+
+=over 4
+
+    As of version 1.60, saves clock settings in ~/.nixieclock.
+    This way if you experiment with 'nixieclock -s' settings,
+    or move the clock around on the screen, those last settings
+    will be remembered. So for instance the next time you run 
+    nixieclock without any arguments (ie. click on a shortcut),
+    those last settings will be used.
+
+=back
+
+=head1 GRAPHIC INTERFACE
+
+=over 4
+
+    If you right-click on the clock, you'll get a popup menu
+    that lets you set a few specific time formats. Changes are
+    saved in ~/.nixieclock, such that the new setting is 'remembered'
+    the next time the clock starts. Any other time formats can be
+    achieved with the command line '-s' option.
+
+    If you left-click on the clock and drag, you can move it
+    around. The new position is saved (in ~/.nixieclock) so
+    that the next time nixieclock is started, it will open
+    in that new position.
+
+=back
+
+=head1 ENVIRONMENT
+
+=over 4
+
+    For both UNIX and Windows, the TZ environment variable is
+    honored if set to determine the timezone used for the time
+    displayed. 
+    
+    So if you wanted nixieclock to show the time in GMT,
+    even though your locale might be different, you can use:
+
+    Unix:
+
+B<        ( export TZ=GMT; nixieclock )>
+
+    Windows:
+
+B<        set TZ=GMT && nixieclock>
+
+    Changing the TZ variable this way will just affect 'nixieclock'
+    (and the shell the command is executed in), and won't affect
+    the rest of the machine. Safe to use in shell/DOS batch scripts.
+
+=back
+
+=head1 AUTHOR
+
+=over 4
+
+Greg Ercolano erco@seriss.com
+
+=back
+
+=head1 DOWNLOAD
+
+=over 4
+
+    github: https://github.com/erco77/nixieclock
+    homepage: http://seriss.com/people/erco/unixtools/nixieclock/
+
+=back
+
+=head1 SEE ALSO
+
+=over 4
+
+B<strftime(3)>, B<X(7x)>
+
+=back

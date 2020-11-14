@@ -1,0 +1,52 @@
+> IN THE MIDDLE OF RIPPING APART NIXIECLOCK INTO SEPARATE FILES
+  Working now.. needs optimization.
+
+    Right now there are two timers; one that updates time changes; nixieclock::Tick
+    and another that handles comp changes; NixieDisply::Tick.
+    NixieDisplay's timer must be fast; about 0.5 ~ 1.0 to make comp changes.
+    But timer shouldn't run if time hasn't changed.
+
+    Try setting NixieDisplay::UpdateSpeed(0) when nothing going on,
+    then change to UpdateSpeed(1.0) whenever time is changed, then
+    back to UpdateSpeed(0) when time has redrawn successfully.
+
+> Also: Want to add a 'fade up/fade out' scheme, so that transitions
+  happen with a 'logarithmic' analog component.  Right now we have 
+  floating point alphas; let's use 'em!
+
+> If time includes fields that change the number of characters
+  (eg. "May" vs. "February"), then the clock needs to recalc its screen size
+  automatically, and relative to the closest edge of the screen, to auto-compensate.
+
+> Make digit cross-dissolve optional. (Erkki Myllynen)
+
+*** DONE ***
+
+DONE Move this project into GIT.
+
+DONE    Make a right click menu so the user can easily set/change the defaults for the clock.
+DONE    Save a preferences file.  Maybe pop a dialog with a text input field, and a chooser 
+DONE    for various defaults, or the user can just type in different argv[] flags into a text field, eg:
+DONE    See email exchange with Brian Sullivan on 08/12/09.
+
+N/A 	    ------------------------------------------------------------------
+N/A 	    | Nixieclock default settings                                    |
+N/A 	    |----------------------------------------------------------------|
+N/A 	    |                                                                |
+N/A 	    |    Help docs here, maybe even a link to a website describing   |
+N/A 	    |    all the % flags, with examples.                             |
+N/A 	    |                                                                |
+N/A 	    |    In the below field, you can either use the chooser to       |
+N/A 	    |    select one of the defaults, or type in the exact command    |
+N/A 	    |    line flags you want.                                        |
+N/A 	    |                                                                |
+N/A 	    |                   __________________________________________   |
+N/A 	    |                  |                                     | __ |  |
+N/A 	    |    Command line: | -s "The time is %c"                 | \/ |  |
+N/A 	    |                  |_____________________________________|____|  |
+N/A 	    |                  |                                          |  |
+N/A 	    |                  | 01/01/2009 Aug 23                        |  |
+N/A 	    |                  | Sat Jun 12 12:00:00 2009                 |  |
+N/A 	    |__________________| etc..                                    |__|
+N/A 			       |__________________________________________|
+N/A 

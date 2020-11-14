@@ -1,0 +1,181 @@
+1.66 -- Convert to git/github, GPL2 -> GPL3
+
+1.65 -- ??.??.??
+
+    o Applied Alexander Clouter's #include and Makefile mods
+
+1.64 -- 04/10/12
+
+    o Restored lemon's '-c <epoch>' flag to enable 'beer o'clock' countdown
+      (See -help and man page for examples of how to use)
+
+    o Added the -N flag to help the -c <epoch> flag from affecting
+      the ~/.nixieclock file.
+
+    o tar file now has version number in the extraction
+      (eg. extracts as "./nixieclock-<VERSION#>/*")
+
+1.63 -- 03/15/12 [INTERNAL RELEASE]
+    o Changed 3dsite.com -> seriss.com
+
+    o Added 'ENVIRONMENT' section to docs re: TZ variable (for Terry).
+      Example shows how to use TZ to show the time in GMT.
+
+    o Added small fixes to support mingw from Terry
+
+    o FLTK added to help screen (LGPL/FLTK license compliance)
+
+1.62 -- 11/28/11 [INTERNAL RELEASE]
+    o Fix for Daniel Ott regarding Fl::args() parsing issue;
+      parse_args() wasn't returning word count.
+
+    o Added docs for -m (flag was recognized but not documented)
+
+    o Added -D flag: same as -d, but with 4 digit year (13:59 12/31/1999)
+
+    o Removed some extraneous code
+
+1.61 -- 06/08/11
+
+    o Fixed a silly bug that made clock redraw itself waaay too often
+      and used too much cpu
+
+1.60 -- 05/05/11
+
+    o Added right click popup menu to set various time formats.
+      For macs with single-button mice, Ctrl-Click will popup the menu.
+
+    o Clock settings now saved in a ~/.nixieclock file
+      so that e.g. clock will come up in same position 
+      it was last moved to, and same time format it was last
+      set to.
+
+    o Fixed command line help menu
+
+    o When time formats are adjusted, clock maintains
+      distance to closest edge of screen.
+
+    o Added '%', '&' and '|' characters to NixieDisplay.
+
+    o nixie-text-viewer: added Home and End keys.
+      Added tooltip to show supported navigation keys.
+
+    o (INTERNAL) Reorg'ed clock code into a 'NixieClock' class
+      in order to implement popup menu features.
+
+    o (INTERNAL) Reformatted code for 'fltk style' braces
+      which makes code a bit shorter for easy reading.
+
+    o (INTERNAL) Had to rename nixieclock.C -> nixieclock-app.C
+      to avoid conflict with NixieClock vs. nixieclock on platforms
+      that don't care about case >:/
+
+1.51 -- 02/10/10
+
+    o Added #include <stdio.h> to top of nixie-text-display.C 
+      to fix compile problem reported by Jozef Riha.
+
+1.50 -- 11/15/09
+
+    o Applied Erkki Myllynen's 11/15/09 fixes/suggs
+         o fl_draw_image() -1 problem
+	 o Digit.C y>=0 problem
+	 o "6" digit repainted/shifted right 1 bit
+	 o -Wno-write-strings
+
+    o Fixed '9'
+
+    o Added nixie-text-display to default build
+
+1.49 -- 10/27/09
+
+    o For OSX, made 'nofork' default to on, to prevent these errors
+      when running on OSX 10.5 and up:
+
+	The process has forked and you cannot use this CoreFoundation functionality safely. You MUST exec().
+	Break on __THE_PROCESS_HAS_FORKED_AND_YOU_CANNOT_USE_THIS_COREFOUNDATION_FUNCTIONALITY___YOU_MUST_EXEC__() to debug.
+	The process has forked and you cannot use this CoreFoundation functionality safely. You MUST exec().
+	Break on __THE_PROCESS_HAS_FORKED_AND_YOU_CANNOT_USE_THIS_COREFOUNDATION_FUNCTIONALITY___YOU_MUST_EXEC__() to debug.
+
+1.48 -- 06/26/09
+
+    o Fixed problem causing unnecessary cpu use;
+      update rate was too fast under normal circumstances
+
+1.47 -- ??/??/06
+
+    o Makefile converted to flkt-config
+
+    o Moved docs into docs
+
+    o Moved icons into icons
+
+    o Created nixie-test-viewer
+
+    o Readme modified
+
+1.46 -- 04/01/06
+
+    o Made height smaller to match older version of nixieclock
+
+    o NixieDisplay standalone now supports multiline text.
+      (Try 'make NixieDisplay ; ./NixieDisplay')
+
+1.45 -- 01/01/06
+
+    o Makefile fixes: nixieclock.app, cleanup bin.XXX files,
+      VERSION number now comes from first entry in CHANGES file
+
+    o Darwin: strip(1) now run before Rez
+
+    o Darwin: Detects FLTK 1.1.7, enables no border 
+      (noborder problem was fixed in fltk 1.1.7 for OSX)
+
+    o Darwin: now starts in lower right by default
+      (like other platforms)
+
+    o Improved help
+
+1.44 -- 12/15/05
+
+    o Windows version now opens in lower right by default
+
+    o Fixed behavior of -d option under Windows
+
+    o Rewrite of code to be more modular, fade code in progress
+
+    o Redo of Makefiles (sorry, I backed off from fltk-config)
+
+1.43 -- 11/12/03
+
+    o Added an icon for windows; changes made to Makefile for resource compiler
+
+    o Command line help now comes up in a 'dialog window' under Windows
+
+    o Now using fltk-config to compile programs
+
+    o Makefile now automatically chooses Makefile.<PLATFORM>
+
+1.42 -- 08/08/03
+
+    o Added -c from lemon at aldigital dot co dot uk
+
+1.41 -- 02/05/02
+
+    o Efficient redraws/holdtime now .5 secs
+
+1.40 -- 02/02/02
+
+    o Rewrote using fltk image drawing, cleanup
+
+1.30 -- 07/28/01
+
+    o Added entire nixie alphabet
+
+1.20 -- 07/19/01
+
+    o OPENGL version, renamed nixiedate
+
+1.10 -- 11/25/00
+
+    o added composite digits

@@ -1,0 +1,96 @@
+NIXIECLOCK INSTALL.txt
+----------------------
+
+DEPENDENCIES
+
+    This code uses the FLTK Fast and Light Toolkit to do the GUI stuff.
+    At the time of this writing, FLTK 1.1.9 was the current version,
+    supported under Win2K/XP/Vista, Linux, OSX and SGI.
+
+    The latest version of FLTK can be downloaded from http://www.fltk.org/
+
+PRECOMPILED BINARIES
+
+    Precompiled binaries are on the nixieclock website:
+    http://seriss.com/people/erco/unixtools/nixieclock/
+
+BUILD/INSTALL
+
+    LINUX/MAC OSX
+    -------------
+    Assuming you have a developer's environment and fltk (from fltk.org) installed
+    you should be able to build with the usual:
+
+	make clean
+	make
+
+    ..and optionally to install:
+
+	sudo make install
+
+    Tweak the Makefile as needed for your platform.
+
+
+    WINDOWS
+    -------
+    Steps shown here as of June 2020; build with msys2/mingw/cmake:
+
+	1. Install the MSYS2 environment and build FLTK, if you haven't already:
+
+	       a. Start with https://www.msys2.org/
+                  Download and run the .exe, which guides you through a simple GUI wizard
+		  installation. You end up with a c:\msys64 directory once installed.
+
+               b. Open a mingw64 shell window from DOS, e.g.
+
+		      cd \msys64
+		      mingw64.exe
+
+	       c. Inside the new shell that opens, get the latest updates by running:
+
+		      pacman -Syu        # -S=sync, -y=refresh pkg dbase, -u=upgrades out of date pkgs,
+
+	       d. The above step may close the shell window you opened as part of the updating process.
+		  Docs say to open the window again, and this time run:
+
+		      pacman -Su
+
+	       e. Now install man, vim, the 64bit compiler, make, man, and cmake for mingw:
+
+		      pacman -S man
+		      pacman -S vim
+		      pacman -S mingw-w64-x86_64-gcc
+		      pacman -S mingw-w64-x86_64-cmake
+		      pacman -S make
+
+		  Installing man is optional, but useful for 'man pacman'.
+		  Installing vim is optional, but it's useful to have a console editor of some kind.
+
+	       f. Clone the FLTK source code to your /c drive using git, e.g.
+
+		      cd /c
+		      git clone https://github.com/fltk/fltk.git fltk-1.4.x-git
+
+	       g. With this installed, one should be able to run cmake to build fltk the usual way:
+
+		      cd /c/fltk-1.4.x-git
+		      mkdir build-mingw64
+		      cd build-mingw64
+		      /mingw64/bin/cmake -G "Unix Makefiles" ..
+		      make
+
+	       h. If that all worked, procede to building nixieclock
+
+	2. Build nixieclock:
+
+	      make clean
+	      make
+
+	   Drop the nixieclock.exe binary where ever you want, Microsoft seems to have
+	   no standard for this other than "C:\Program Files".
+
+BUGS
+
+    To report bugs, create an 'issue' on the project's github page:
+    https://github.com/erco77/flruler
+
