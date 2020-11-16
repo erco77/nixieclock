@@ -8,10 +8,9 @@ The nixieclock program is a simple little desktop clock that shows the
 current time using a 'nixie tube' style display, and can display the
 time in various time formats as set by the `-s` flag.
 
-It can be run from the command line with `./nixieclock` (or on windows,
-`nixieclock.exe`)
+It can be run from the command line with `./nixieclock` (or on windows, `nixieclock.exe`), and moved around on the screen by click and dragging it to a new position. When closed and re-opened, it remembers the last position and time format you configured last.
 
-It supports many time formats; right click to choose different preset time formats from a popup menu:
+You can choose different time formats by right clicking, and choose from different presets:
 ![Popup Menu](https://raw.githubusercontent.com/erco77/nixieclock/main/docs/images/nixieclock-popup-menu.png)
 
 ..or use the command line `-s` flag to create custom time formats using strftime(3) format strings, e.g.
