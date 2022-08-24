@@ -24,6 +24,7 @@
 
 #include <stdio.h>	// stderr
 #include <unistd.h>	// fork()
+#include <locale.h>	// setlocale()
 #include <FL/Fl.H>	// Fl::error()
 #include <FL/fl_ask.H>	// Fl::error()
 #include "NixieClock.H"
@@ -186,6 +187,8 @@ int parse_args(int argc, char **argv, int &t) {
 
 // MAIN
 int main(int argc, char **argv) { 
+    setlocale(LC_ALL, "");	// multilanguage support
+
     // BANNER
     fprintf(stderr, "\nnixieclock -- Version %s\n"
                     "(C) Copyright 2011,2020 Greg Ercolano (erco@seriss.com).\n"
