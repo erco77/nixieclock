@@ -92,10 +92,10 @@ B<nixieclock -N -c `perl -e 'print time()+3600;'` -s "BEER: %H:%M:%S">
     The sequence will be:
 
           BEER: 01:00:00
-	  BEER: 00:59:59
-	  [..]
-	  BEER: 00:00:01
-	  BEER: 00:00:00
+          BEER: 00:59:59
+          [..]
+          BEER: 00:00:01
+          BEER: 00:00:00
 
     ..when the counter reaches 00:00:00, it stops counting down
     (the clock remains open). You can change the -s format string
@@ -151,11 +151,11 @@ B<nixieclock -N -c `perl -e 'print time()+3600;'` -s "BEER: %H:%M:%S">
 
     Unix:
 
-B<        ( export TZ=GMT; nixieclock )>
+         ( export TZ=GMT; nixieclock )
 
     Windows:
 
-B<        set TZ=GMT && nixieclock>
+          set TZ=GMT && nixieclock
 
     Changing the TZ variable this way will just affect 'nixieclock'
     (and the shell the command is executed in), and won't affect
