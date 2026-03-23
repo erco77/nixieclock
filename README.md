@@ -41,8 +41,8 @@ This code is licensed as GPL3; see `LICENSE` file for details.
 
 ## BUGS
 
-    To report bugs, create an 'issue' on the project's github page:
-    https://github.com/erco77/nixieclock
+To report bugs, create an 'issue' on the project's github page:\
+[https://github.com/erco77/nixieclock](https://github.com/erco77/nixieclock)
 
 ## DOCUMENTATION
 
@@ -50,9 +50,15 @@ See `./docs/nixieclock.html`
 
 ## WEBSITE
 
-    github:  https://github.com/erco77/nixieclock
-    webpage: http://seriss.com/people/erco/unixtools/nixieclock
+**github:**  [https://github.com/erco77/nixieclock](https://github.com/erco77/nixieclock)\
+**webpage:** [http://seriss.com/people/erco/unixtools/nixieclock](http://seriss.com/people/erco/unixtools/nixieclock)
 
+## SEE ALSO
+
+**Nixie Webclock:** [http://seriss.com/people/erco/nixie-webclock](http://seriss.com/people/erco/nixie-webclock)\
+Written in javascript/html5, runs in most PC browsers, phones and tablets.\
+On phones, can run like an app.
+    
 ## CONTRIBUTORS
 
 * Greg Ercolano - nixieclock application (first written for the SGI + Linux, later OSX and Windows)
