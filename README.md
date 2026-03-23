@@ -56,6 +56,7 @@ See `./docs/nixieclock.html`
 ## SEE ALSO
 
 **Nixie Webclock:** [http://seriss.com/people/erco/nixie-webclock](http://seriss.com/people/erco/nixie-webclock)\
+![Nixie webclock screenshot](https://www.seriss.com/people/erco/nixie-webclock/screenshot-500.png)\
 Written in javascript/html5, runs in most PC browsers, phones and tablets.\
 On phones, can run like an app.
     
